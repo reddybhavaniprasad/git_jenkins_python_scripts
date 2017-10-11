@@ -2,6 +2,7 @@ import os
 import sys
 import re
 
+""" Committing and Pushing the changes """
 def commit_process():
         commit = ['y','Y','yes','Yes','YES']
         leave = ['n','N','no','No','NO']
@@ -16,6 +17,7 @@ def commit_process():
                 print("Invalid option- Try again")
                 commit_process()
 
+""" To make list of lists into a single list """
 def list_of_lists_to_single_list(list1):
 	list2 = []
         for x in list1:
@@ -29,6 +31,7 @@ def list_of_lists_to_single_list(list1):
         list2 = list(list2)
 	return list2
 
+""" Adding the files to the Staging area """
 def adding_changes(list1):
         z = "\t"
         list2 = []
@@ -51,7 +54,7 @@ def adding_changes(list1):
                 list3.append(line)
 
 	list4 = list_of_lists_to_single_list(list3)
-	if "\tmodified" in list4:
+	if "\tmodified:" in list4:
 	        list4.remove("\tmodified:")
         if "\tdeleted:" in list4:
                 list4.remove("\tdeleted:")
@@ -73,6 +76,7 @@ def adding_changes(list1):
 
         commit_process()
 
+""" Checking the status of the files in the git clone """
 def check_status():
 	print("I am in check_status")
         file_path = '%s/status.txt' %(path)
